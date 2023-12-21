@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# rysther6uhyeyh
+i=0
+until [ $i -le 9 ]; do
+	echo "Best School"
+	((i++))
+done
