@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# ear gqaer gt
+for file in *; do
+  if [ -f "$file" ] && [[ $file =~ ^[0-9]+-(.*)$ ]]; then
+    echo "${BASH_REMATCH[1]}"
+  fi
+done
