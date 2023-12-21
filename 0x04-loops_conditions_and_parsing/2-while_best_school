@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# w45ygye56 he
+i=0
+while [ $i -le 9 ]; do
+echo "Best School"
+((i++))
+done
