@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# ryh wr6h
+i=0
+while [ $i -le 9 ]
+do
+	echo "Best School"
+	if [ $i -eq 8 ]
+	then
+	 	echo "Hi"	
+	fi
+	((i++))
+done
