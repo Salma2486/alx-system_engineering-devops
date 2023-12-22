@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# stey rsdu
+pkill -15 "7-highlander"
