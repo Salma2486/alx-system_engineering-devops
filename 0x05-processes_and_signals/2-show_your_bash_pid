@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# taerwt ger gt
+ps -auxf | grep bash

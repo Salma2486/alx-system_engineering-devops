@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# wesrgt wstr yg
+pgrep -l bash
