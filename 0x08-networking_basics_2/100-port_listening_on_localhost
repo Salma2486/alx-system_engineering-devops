@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# e6tu hydty u
+nc -l 98
