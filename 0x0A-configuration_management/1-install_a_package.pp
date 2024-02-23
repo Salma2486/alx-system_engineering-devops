@@ -1,10 +1,9 @@
 # erth eth etyh ety h
 package { 'python3-pip':
-  ensure => present,
+  ensure => installed,
 }
 
-package { 'Flask':
-  ensure   => '2.1.0',
-  provider => 'pip3',
-  require  => Package['python3-pip'],
+exec { 'install_flask_deps':
+  command => '/usr/bin/pip3 install Flask==2.1.0 Werkzeug==2.1.1',
+  require => Package['python3-pip'],
 }
