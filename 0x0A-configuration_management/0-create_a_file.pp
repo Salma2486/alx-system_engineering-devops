@@ -1,3 +1,4 @@
+# sdtgrsrth srth wr ht
 file { '/tmp/school':
   ensure  => 'file',
   mode    => '0744',
