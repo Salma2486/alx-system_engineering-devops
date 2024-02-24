@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# gsreuhgtsorhisotrh tirsdp hsrd tsdhy
+ssh-keygen -t rsa -b 4096 -f school -N 'betty'
