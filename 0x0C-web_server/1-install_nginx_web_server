@@ -2,6 +2,10 @@
 #ytdjkrdt hkjld hrkljdr hkmlt
 apt-get -y update
 apt-get -y install nginx
-echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
-sudo ufw allow 'Nginx HTTP'
-service nginx start
+sed -i 's/^\(listen\s\+\)80/\180/' /etc/nginx/sites-available/default
+
+# Restart Nginx
+service nginx restart
+
+# Create a simple HTML file with "Hello World!"
+echo "Hello World!" > /var/www/html/index.html
