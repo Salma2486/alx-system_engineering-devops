@@ -1,11 +1,7 @@
 #!/usr/bin/env bash
 #ytdjkrdt hkjld hrkljdr hkmlt
-apt-get -y update
-apt-get -y install nginx
-sed -i 's/^\(listen\s\+\)80/\180/' /etc/nginx/sites-available/default
-
-# Restart Nginx
-service nginx restart
-
-# Create a simple HTML file with "Hello World!"
-echo "Hello World!" > /var/www/html/index.html
+sudo apt -y update
+sudo apt install nginx -y
+sudo ufw allow 'Nginx HTTP'
+echo 'Hello World!' > /var/www/html/index.nginx-debian.html
+service nginx start
