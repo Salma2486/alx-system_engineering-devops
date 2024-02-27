@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# rsth gsrt hsrt hyrdt hy
+sudo apt-get update
+
+# Install Nginx
+sudo apt-get install -y nginx
+
+# Start Nginx
+sudo service nginx start
+
+# Create a configuration file for the redirection
+echo "server {
+    listen 80;
+    server_name localhost;
+
+    location = /redirect_me {
+        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+    }
+}" | sudo tee /etc/nginx/sites-available/redirection
+
+# Enable the configuration by creating a symbolic link to the sites-enabled directory
+sudo ln -s /etc/nginx/sites-available/redirection /etc/nginx/sites-enabled/
+
+# Remove the default configuration
+sudo rm /etc/nginx/sites-enabled/default
+
+# Restart Nginx to apply the changes
+sudo service nginx restart
