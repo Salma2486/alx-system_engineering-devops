@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-#ytdjkrdt hkjld hrkljdr hkmlt
+# ytdjkrdt hkjld hrkljdr hkmlt
+
 sudo apt -y update
 sudo apt install nginx -y
 sudo ufw allow 'Nginx HTTP'
