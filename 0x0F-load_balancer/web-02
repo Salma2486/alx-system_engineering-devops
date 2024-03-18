@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#dt yhdt yjdty jdty jd
+ssh -i ~/.ssh/school ubuntu@18.210.10.255
