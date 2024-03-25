@@ -1,27 +1,24 @@
 #!/usr/bin/python3
-"""Python script that, using this REST API, for
-a given employee ID, returns information about
- his/her TO list progress.
- and export into csv"""
+"""Exports to-do list information for a given emp"""
+
 import csv
 import requests
 import sys
 
+
 if __name__ == "__main__":
-    id = sys.argv[1]
+    user_id = sys.argv[1]
+
     url = "https://jsonplaceholder.typicode.com/"
-    user = requests.get(url + "users/{}".format(id)).json()
-    # *get todo where userID = id
-    todos = requests.get(url + "todos", {"userId": id}).json()
 
-    name = user.get("username")
+    user = requests.get(url + "users/{}".format(user_id)).json()
 
-    file_name = "{}.csv".format(id)
-    with open(file_name, 'w') as f:
-        writer = csv.writer(f, quoting=csv.QUOTE_ALL)
+    username = user.get("username")
 
-        for item in todos:
-            completed_status = item.get("completed")
-            task_title = item.get("title")
+    todos = requests.get(url + "todos", params={"userId": user_id}).json()
 
-            writer.writerow([id, name, completed_status, task_title])
+    with open("{}.csv".format(user_id), "w", newline="") as csvfile:
+        writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
+        [writer.writerow(
+            [user_id, username, t.get("completed"), t.get("title")]
+         ) for t in todos] explain this
