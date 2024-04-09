@@ -1,31 +1,17 @@
 #!/usr/bin/python3
-"""Query Reddit API to determine subreddit sub count
-"""
-
-import requests
+"""Module for task 0"""
 
 
 def number_of_subscribers(subreddit):
-    """Request number of subscribers of subreddit
-    from Reddit API
-    """
-    # set custom user-agent
-    user_agent = '0x16-api_advanced-jmajetich'
-    url = 'https://www.reddit.com/r/{}.json'.format(subreddit)
+    """Queries the Reddit API and returns the number of subscribers
+    to the subreddit"""
+    import requests
 
-    # custom user-agent avoids request limit
-    headers = {'User-Agent': user_agent}
-
-    r = requests.get(url, headers=headers, allow_redirects=False)
-
-    if r.status_code != 200:
+    sub_info = requests.get("https://www.reddit.com/r/{}/about.json"
+                            .format(subreddit),
+                            headers={"User-Agent": "My-User-Agent"},
+                            allow_redirects=False)
+    if sub_info.status_code >= 300:
         return 0
 
-    # load response unit from json
-    data = r.json()['data']
-    # extract list of pages
-    pages = data['children']
-    # extract data from first page
-    page_data = pages[0]['data']
-    # return number of subreddit subs
-    return page_data['subreddit_subscribers']
+    return sub_info.json().get("data").get("subscribers")
