@@ -5,6 +5,7 @@ number of subscribers for a given subreddit
 
 import requests
 
+
 def number_of_subscribers(subreddit):
     # Define the URL of the subreddit
     url = f"https://www.reddit.com/r/{subreddit}/about.json"
@@ -13,10 +14,9 @@ def number_of_subscribers(subreddit):
     headers = {"User-Agent": "custom"}
 
     try:
-        # Make a GET request to the subreddit's about page without following redirects
+
         response = requests.get(url, headers=headers, allow_redirects=False)
 
-        # If the response status code is 200, parse the JSON and return the subscriber count
         if response.status_code == 200:
             data = response.json()
             return data.get("data", {}).get("subscribers", 0)
